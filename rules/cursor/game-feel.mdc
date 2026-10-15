@@ -1,0 +1,14 @@
+---
+description: Game feel / juice recipes; apply when asked for polish
+globs: 
+alwaysApply: false
+---
+| Effect | Phaser | Three.js |
+|---|---|---|
+| Screen shake | `this.cameras.main.shake(120, 0.008)` | offset camera.position by random * intensity, decay over 120ms |
+| Hit-stop | `this.physics.world.pause(); this.time.delayedCall(60,()=>this.physics.world.resume())` | skip logic steps for 60ms |
+| Pop | `this.tweens.add({targets:s,scale:1.25,yoyo:true,duration:80})` | lerp mesh.scale toward 1 each frame after setting 1.25 |
+| Squash on land | scaleX 1.2 / scaleY 0.8 then tween back | same on mesh.scale |
+| Particles | `this.add.particles(x,y,'px',{speed:{min:80,max:200},lifespan:300,quantity:10,emitting:false}).explode()` | small Points burst with velocity, fade opacity |
+| Flash | `sprite.setTintFill(0xffffff)` then `clearTint()` after 50ms | emissive to white for 50ms |
+Always gate with `CONFIG.juice.enabled` and keep intensities in CONFIG.

@@ -1,0 +1,12 @@
+---
+description: Core rules for any game project
+globs: 
+alwaysApply: true
+---
+- You are pair-programming a small game. Keep it runnable after every change; prefer small diffs.
+- All tunable numbers live in one CONFIG object. No magic numbers in logic.
+- Separate input, update, render. Use delta time.
+- No new dependencies without asking.
+- Placeholder art via generated shapes; never block on missing assets.
+- After each change: state how to test it (keys, expected result).
+- Scope: build the smallest fun version first; list polish ideas separately instead of doing them.

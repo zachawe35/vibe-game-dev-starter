@@ -1,0 +1,21 @@
+---
+description: Phaser 3 conventions
+globs: **/*.js,**/*.ts
+alwaysApply: false
+---
+## Project shape
+- index.html loads Phaser from CDN or npm, then src/main.js (ES modules).
+- One file per Scene: Boot/Preload -> Menu -> Game -> UI (parallel) -> GameOver.
+- src/config.js exports CONFIG (all tunables).
+## Rules
+- Use `this.physics.add.sprite` + Arcade physics for platformers/top-down; set `setCollideWorldBounds`.
+- Generate placeholder art with `this.make.graphics(...).generateTexture(key,w,h)` so nothing blocks on assets.
+- Use `this.scene.restart()` for retries; reset all state in `create()`, never in constructor.
+- Input: `this.input.keyboard.createCursorKeys()` plus `addKeys('W,A,S,D,SPACE')`; add pointer/touch equivalents.
+- UI in a separate scene launched with `this.scene.launch('UI')`; communicate via `this.events` / `this.registry`.
+- Coyote time (~100ms) and jump buffering (~100ms) for platformers.
+- Clean up: remove event listeners in `shutdown` handlers.
+## Common bugs
+- Asset paths: relative (`assets/x.png`), never absolute `/assets`.
+- `update(time, delta)`: delta is ms; divide by 1000 for per-second rates.
+- Overlap callbacks firing every frame: guard with a flag or disable body.
