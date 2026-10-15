@@ -3,6 +3,8 @@ Free Cursor rules, a Claude Code QA agent and a playable Phaser 3 starter for **
 
 **▶ Play it in your browser:** https://zachawe35.github.io/vibe-game-dev-starter/
 
+**Free download (zip + 10 prompts):** https://zachagent.gumroad.com/l/gqotnk
+
 ## Use it
 - **Cursor:** copy `rules/cursor/*.mdc` into your project's `.cursor/rules/`.
   - `game-core.mdc`: always on. Small diffs, CONFIG-driven tuning, always playable.
